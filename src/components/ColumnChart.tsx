@@ -1,11 +1,12 @@
-import React, { useContext, useState } from "react";
-import Highcharts from "highcharts";
-import HighchartsReact from "highcharts-react-official";
+import urls from "@/configs/urls";
 import { AppContext } from "@/context/AppContext";
 import { useFetch } from "@/hooks/useFetch";
-import { DataGrid } from "@mui/x-data-grid";
+import { Product } from "@/models/Product";
 import { Button, ButtonGroup, Rating, Stack } from "@mui/material";
-import urls from "@/configs/urls";
+import { DataGrid } from "@mui/x-data-grid";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import React, { useContext, useState } from "react";
 
 enum ChartBy {
   Price = "price",
@@ -14,7 +15,7 @@ enum ChartBy {
 
 export const BarChart: React.FC = () => {
   const { selectedCategory } = useContext(AppContext)!;
-  const { data: products, loading } = useFetch<any[]>(
+  const { data: products, loading } = useFetch<Product[]>(
     urls.api.categoryByName(selectedCategory)
   );
   const [chartBy, setChartBy] = useState(ChartBy.Price);
@@ -46,7 +47,7 @@ export const BarChart: React.FC = () => {
 
   return (
     <>
-      {/* Instead of dropdown implementing the  */}
+      {/* Instead of dropdown implementing the group  */}
       <ButtonGroup variant="contained" color="primary">
         <Button
           variant={chartBy === ChartBy.Price ? "contained" : "outlined"}
@@ -61,6 +62,7 @@ export const BarChart: React.FC = () => {
           By Rating
         </Button>
       </ButtonGroup>
+
       <HighchartsReact
         highcharts={Highcharts}
         options={chartBy === ChartBy.Price ? priceOptions : ratingOptions}

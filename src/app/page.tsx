@@ -1,7 +1,7 @@
 "use client";
 
-import { BarChart } from "@/components/ColumnChart";
 import CategoryDropdown from "@/components/CategoryDropdown";
+import { BarChart } from "@/components/ColumnChart";
 import { ProductDetails } from "@/components/ProductDetails";
 import { ProductDropdown } from "@/components/ProductDropdown";
 import { AppContext } from "@/context/AppContext";
@@ -65,11 +65,9 @@ const App = () => {
             selectedCategory && <BarChart />
           )}
 
-          {
-            !selectedCategory && <Typography 
-            fontWeight='bold'
-            >Please select a category</Typography>
-          }
+          {!selectedCategory && (
+            <Typography fontWeight="bold">Please select a category</Typography>
+          )}
         </Grid>
       </Grid>
     </Stack>

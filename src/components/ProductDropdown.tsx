@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { AppContext } from "@/context/AppContext";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { useFetch } from "@/hooks/useFetch";
 import urls from "@/configs/urls";
+import { AppContext } from "@/context/AppContext";
+import { useFetch } from "@/hooks/useFetch";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import React, { useContext } from "react";
 
 export const ProductDropdown: React.FC = () => {
   const { selectedCategory, selectedProduct, setSelectedProduct } =
