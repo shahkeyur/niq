@@ -10,6 +10,7 @@ import { Button, Grid, Stack, styled, Typography } from "@mui/material";
 const Title = styled("h1")({
   backgroundColor: "lightblue",
   padding: 12,
+  textAlign: "center",
 });
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
               </Button>
             )}
           </Stack>
+
           {selectedCategory && (
             <Stack spacing={2} direction="row">
               <ProductDropdown />
@@ -64,7 +66,7 @@ const App = () => {
             selectedCategory && <BarChart />
           )}
 
-          {!selectedCategory && (
+          {!selectedCategory && !selectedProduct && (
             <Typography fontWeight="bold">Please select a category</Typography>
           )}
         </Grid>
