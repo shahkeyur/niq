@@ -5,7 +5,7 @@ import CategoryDropdown from "@/components/CategoryDropdown";
 import { ProductDetails } from "@/components/ProductDetails";
 import { ProductDropdown } from "@/components/ProductDropdown";
 import { AppContext } from "@/context/AppContext";
-import { Button, Grid, Stack, styled } from "@mui/material";
+import { Button, Grid, Stack, styled, Typography } from "@mui/material";
 import { useContext } from "react";
 
 const Title = styled("h1")({
@@ -64,6 +64,12 @@ const App = () => {
           ) : (
             selectedCategory && <BarChart />
           )}
+
+          {
+            !selectedCategory && <Typography 
+            fontWeight='bold'
+            >Please select a category</Typography>
+          }
         </Grid>
       </Grid>
     </Stack>
