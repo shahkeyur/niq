@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart } from "@/components/BarChart";
+import { BarChart } from "@/components/ColumnChart";
 import CategoryDropdown from "@/components/CategoryDropdown";
 import { ProductDetails } from "@/components/ProductDetails";
 import { ProductDropdown } from "@/components/ProductDropdown";
