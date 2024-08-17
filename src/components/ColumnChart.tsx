@@ -5,6 +5,7 @@ import { AppContext } from "@/context/AppContext";
 import { useFetch } from "@/hooks/useFetch";
 import { DataGrid } from "@mui/x-data-grid";
 import { Button, ButtonGroup, Rating, Stack } from "@mui/material";
+import urls from "@/configs/urls";
 
 enum ChartBy {
   Price = "price",
@@ -14,7 +15,7 @@ enum ChartBy {
 export const BarChart: React.FC = () => {
   const { selectedCategory } = useContext(AppContext)!;
   const { data: products, loading } = useFetch<any[]>(
-    `/products/category/${selectedCategory}`
+    urls.api.categoryByName(selectedCategory)
   );
   const [chartBy, setChartBy] = useState(ChartBy.Price);
 

@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useFetch } from "@/hooks/useFetch";
+import urls from "@/configs/urls";
 
 export const ProductDropdown: React.FC = () => {
   const { selectedCategory, selectedProduct, setSelectedProduct } =
     useContext(AppContext)!;
   const { data: products, loading } = useFetch<any[]>(
-    `/products/category/${selectedCategory}`
+    urls.api.categoryByName(selectedCategory)
   );
 
   if (loading) return <p>Loading...</p>;
