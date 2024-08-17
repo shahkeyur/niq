@@ -28,17 +28,19 @@ const App = () => {
       <Grid container>
         {/* Filters */}
         <Grid item md={3}>
-          <Stack spacing={2} direction="row">
-            {/* I could have this button inside of dropdown it self */}
+          <Stack my={2} spacing={2} direction="row">
+            {/* I could have this button inside of dropdown it self, just keeping them separate on purpose */}
             <CategoryDropdown />
-            <Button
-              variant="contained"
-              onClick={() => {
-                setSelectedCategory("");
-              }}
-            >
-              X
-            </Button>
+            {selectedCategory && (
+              <Button
+                variant="contained"
+                onClick={() => {
+                  setSelectedCategory("");
+                }}
+              >
+                X
+              </Button>
+            )}
           </Stack>
           {selectedCategory && (
             <Stack spacing={2} direction="row">
