@@ -1,11 +1,10 @@
 import urls from "@/configs/urls";
-import { AppContext } from "@/context/AppContext";
+import useAppContext from "@/hooks/useAppContext";
 import { useFetch } from "@/hooks/useFetch";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { useContext } from "react";
 
 export default function CategoryDropdown() {
-  const { selectedCategory, setSelectedCategory } = useContext(AppContext)!;
+  const { selectedCategory, setSelectedCategory } = useAppContext();
   const { data: categories, loading } = useFetch<string[]>(urls.api.categories);
 
   if (loading) return <p>Loading...</p>;

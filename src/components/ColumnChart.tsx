@@ -1,12 +1,12 @@
 import urls from "@/configs/urls";
-import { AppContext } from "@/context/AppContext";
+import useAppContext from "@/hooks/useAppContext";
 import { useFetch } from "@/hooks/useFetch";
 import { Product } from "@/models/Product";
 import { Button, ButtonGroup, Rating, Stack } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 enum ChartBy {
   Price = "price",
@@ -14,7 +14,7 @@ enum ChartBy {
 }
 
 export const BarChart: React.FC = () => {
-  const { selectedCategory } = useContext(AppContext)!;
+  const { selectedCategory } = useAppContext();
   const { data: products, loading } = useFetch<Product[]>(
     urls.api.categoryByName(selectedCategory)
   );

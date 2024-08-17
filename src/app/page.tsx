@@ -4,9 +4,8 @@ import CategoryDropdown from "@/components/CategoryDropdown";
 import { BarChart } from "@/components/ColumnChart";
 import { ProductDetails } from "@/components/ProductDetails";
 import { ProductDropdown } from "@/components/ProductDropdown";
-import { AppContext } from "@/context/AppContext";
+import useAppContext from "@/hooks/useAppContext";
 import { Button, Grid, Stack, styled, Typography } from "@mui/material";
-import { useContext } from "react";
 
 const Title = styled("h1")({
   backgroundColor: "lightblue",
@@ -19,7 +18,7 @@ const App = () => {
     selectedProduct,
     setSelectedCategory,
     setSelectedProduct,
-  } = useContext(AppContext)!;
+  } = useAppContext();
 
   return (
     <Stack spacing={2} padding={3}>

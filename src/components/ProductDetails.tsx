@@ -1,14 +1,13 @@
-// src/components/ProductDetails.tsx
 import urls from "@/configs/urls";
-import { AppContext } from "@/context/AppContext";
+import useAppContext from "@/hooks/useAppContext";
 import { useFetch } from "@/hooks/useFetch";
 import { Product } from "@/models/Product";
 import { Grid, Stack, Typography } from "@mui/material";
-import React, { useContext } from "react";
+import React from "react";
 import ProductImage from "./ProductImage";
 
 export const ProductDetails: React.FC = () => {
-  const { selectedProduct } = useContext(AppContext)!;
+  const { selectedProduct } = useAppContext();
   const { data: product, loading } = useFetch<Product>(
     urls.api.productByName(selectedProduct)
   );
