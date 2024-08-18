@@ -13,7 +13,7 @@ enum ChartBy {
   Rating = "rating",
 }
 
-export const BarChart: React.FC = () => {
+export default function ColumnChart() {
   const { selectedCategory } = useAppContext();
   const { data: products, loading } = useFetch<Product[]>(
     urls.api.categoryByName(selectedCategory)
@@ -90,4 +90,4 @@ export const BarChart: React.FC = () => {
       </div>
     </>
   );
-};
+}

@@ -1,9 +1,9 @@
 "use client";
 
 import CategoryDropdown from "@/components/CategoryDropdown";
-import { BarChart } from "@/components/ColumnChart";
-import { ProductDetails } from "@/components/ProductDetails";
-import { ProductDropdown } from "@/components/ProductDropdown";
+import ColumnChart from "@/components/ColumnChart";
+import ProductDetails from "@/components/ProductDetails";
+import ProductDropdown from "@/components/ProductDropdown";
 import useAppContext from "@/hooks/useAppContext";
 import { Button, Grid, Stack, styled, Typography } from "@mui/material";
 
@@ -63,7 +63,7 @@ const App = () => {
           {selectedProduct ? (
             <ProductDetails />
           ) : (
-            selectedCategory && <BarChart />
+            selectedCategory && <ColumnChart />
           )}
 
           {!selectedCategory && !selectedProduct && (

@@ -6,7 +6,7 @@ import { Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import ProductImage from "./ProductImage";
 
-export const ProductDetails: React.FC = () => {
+export default function ProductDetails() {
   const { selectedProduct } = useAppContext();
   const { data: product, loading } = useFetch<Product>(
     urls.api.productByName(selectedProduct)
@@ -36,4 +36,4 @@ export const ProductDetails: React.FC = () => {
       <p>{product.description}</p>
     </Stack>
   ) : null;
-};
+}

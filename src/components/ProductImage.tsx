@@ -2,7 +2,11 @@ import { Product } from "@/models/Product";
 import Image from "next/image";
 import React, { useState } from "react";
 
-const ProductImage = ({ product }: { product: Product }) => {
+interface ProductImageProps {
+  product: Product;
+}
+
+export default function ProductImage({ product }: ProductImageProps) {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -19,6 +23,4 @@ const ProductImage = ({ product }: { product: Product }) => {
       />
     </>
   );
-};
-
-export default ProductImage;
+}
