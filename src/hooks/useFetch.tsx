@@ -8,6 +8,7 @@ export const useFetch = <T,>(endpoint: string) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const url = `https://fakestoreapi.com${endpoint}`;
         const response = await fetch(url);
         const result = await response.json();
